@@ -1,12 +1,16 @@
 import React, { useState } from "react";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import axios from 'axios';
-import { useNavigate, Link } from 'react-router-dom';
-import "./Signup.css"; // Keeping same style as Auth.js - you can split to Signup.css if needed
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
+import { useNavigate, Link } from "react-router-dom";
+import "./Signup.css"; 
 
 function Signup() {
-  const [signupInfo, setSignupInfo] = useState({ name: '', email: '', password: '' });
+  const [signupInfo, setSignupInfo] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -19,18 +23,31 @@ function Signup() {
     const { name, email, password } = signupInfo;
 
     if (!name || !email || !password) {
-      toast.error("All fields are required!", { position: "top-center", autoClose: 3000 });
+      toast.error("All fields are required!", {
+        position: "top-center",
+        autoClose: 3000,
+      });
       return;
     }
 
     try {
-      const response = await axios.post('http://localhost:8000/auth/signup', { name, email, password });
+      const response = await axios.post("http://localhost:8000/auth/signup", {
+        name,
+        email,
+        password,
+      });
       if (response.data.success) {
-        toast.success("Signup successful!", { position: "top-center", autoClose: 3000 });
-        setTimeout(() => navigate('/login'), 3000);
+        toast.success("Signup successful!", {
+          position: "top-center",
+          autoClose: 3000,
+        });
+        setTimeout(() => navigate("/login"), 3000);
       }
     } catch (error) {
-      toast.error(error.response?.data?.message || "Signup failed!", { position: "top-center", autoClose: 3000 });
+      toast.error(error.response?.data?.message || "Signup failed!", {
+        position: "top-center",
+        autoClose: 3000,
+      });
     }
   };
 
@@ -38,69 +55,75 @@ function Signup() {
     <div>
       <div className="containers"></div>
       <div className="form-container">
-            {/* Tagline */}
-            <h2 className="form-tagline">🚀 Create Your Account!</h2>
+        <h2 className="form-tagline">🚀 Create Your Account!</h2>
 
-        <form className="login-form" onSubmit={handleSignup}>  {/* Re-using same class to match style */}
-
-      
-          {/* Name Input */}
+        <form className="login-form" onSubmit={handleSignup}>
           <div className="form-input">
             <i className="fas fa-user"></i>
-            <input 
-              type="text" 
-              name="name" 
-              placeholder="Name" 
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
               value={signupInfo.name}
-              onChange={handleChange} 
-              required 
+              onChange={handleChange}
+              required
             />
           </div>
-
+          
+          
+          
           {/* Email Input */}
           <div className="form-input">
             <i className="fas fa-envelope"></i>
-            <input 
-              type="email" 
-              name="email" 
-              placeholder="Email" 
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
               value={signupInfo.email}
-              onChange={handleChange} 
-              required 
+              onChange={handleChange}
+              required
             />
           </div>
+
+
 
           {/* Password Input */}
           <div className="form-input">
             <i className="fas fa-lock"></i>
-            <input 
-              type="password" 
-              name="password" 
-              placeholder="Password" 
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
               value={signupInfo.password}
-              onChange={handleChange} 
-              required 
+              onChange={handleChange}
+              required
             />
           </div>
+
 
           {/* Signup Button */}
           <button type="submit" className="btn-primary">
             Sign Up
           </button>
 
-          {/* Google Sign Up Button (optional - you can remove if not needed) */}
-          <button type="button" className="btn-google"  onClick={() => window.location.href = 'http://localhost:8000/auth/google'}>
+
+          <button
+            type="button"
+            className="btn-google"
+            onClick={() =>
+              (window.location.href =
+                "http://localhost:8000/auth/google?state=signup")
+            }
+          >
             <i className="fab fa-google"></i>
             Continue with Google
           </button>
-
-
-
           <p className="signup-link">
             Already have an account? &nbsp;
-            <Link to="/login" className="signup-link">Login</Link>
+            <Link to="/login" className="signup-link">
+              Login
+            </Link>
           </p>
-
         </form>
       </div>
 
@@ -110,4 +133,3 @@ function Signup() {
 }
 
 export default Signup;
-
