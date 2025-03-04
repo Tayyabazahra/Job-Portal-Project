@@ -1,136 +1,157 @@
-import React, { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import axios from "axios";
-import { useNavigate, Link } from "react-router-dom";
-import "./Signup.css"; 
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
 
-function Signup() {
-  const [signupInfo, setSignupInfo] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
-  const navigate = useNavigate();
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setSignupInfo({ ...signupInfo, [name]: value });
-  };
-
-  const handleSignup = async (e) => {
-    e.preventDefault();
-    const { name, email, password } = signupInfo;
-
-    if (!name || !email || !password) {
-      toast.error("All fields are required!", {
-        position: "top-center",
-        autoClose: 3000,
-      });
-      return;
-    }
-
-    try {
-      const response = await axios.post("http://localhost:8000/auth/signup", {
-        name,
-        email,
-        password,
-      });
-      if (response.data.success) {
-        toast.success("Signup successful!", {
-          position: "top-center",
-          autoClose: 3000,
-        });
-        setTimeout(() => navigate("/login"), 3000);
-      }
-    } catch (error) {
-      toast.error(error.response?.data?.message || "Signup failed!", {
-        position: "top-center",
-        autoClose: 3000,
-      });
-    }
-  };
-
-  return (
-    <div>
-      <div className="containers"></div>
-      <div className="form-container">
-        <h2 className="form-tagline">🚀 Create Your Account!</h2>
-
-        <form className="login-form" onSubmit={handleSignup}>
-          <div className="form-input">
-            <i className="fas fa-user"></i>
-            <input
-              type="text"
-              name="name"
-              placeholder="Name"
-              value={signupInfo.name}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          
-          
-          
-          {/* Email Input */}
-          <div className="form-input">
-            <i className="fas fa-envelope"></i>
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={signupInfo.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-
-
-          {/* Password Input */}
-          <div className="form-input">
-            <i className="fas fa-lock"></i>
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={signupInfo.password}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-
-          {/* Signup Button */}
-          <button type="submit" className="btn-primary">
-            Sign Up
-          </button>
-
-
-          {/* Google Sign Up Button (optional - you can remove if not needed) */}
-          <button
-            type="button"
-            className="btn-google"
-            onClick={() =>
-              (window.location.href =
-                "http://localhost:8000/auth/google?state=signup")
-            }
-          >
-            <i className="fab fa-google"></i>
-            Continue with Google
-          </button>
-          <p className="signup-link">
-            Already have an account? &nbsp;
-            <Link to="/login" className="signup-link">
-              Login
-            </Link>
-          </p>
-        </form>
-      </div>
-
-      <ToastContainer />
-    </div>
-  );
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 
-export default Signup;
+.containers {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+}
+
+.containers::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../assets/background\ pattern.png);
+    background-repeat: repeat;
+    background-size: 50px 50px; 
+    opacity: 0.2; 
+    z-index: -1;
+}
+
+.containers::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top left, rgba(0, 0, 50, 0.2), transparent 40%), 
+                radial-gradient(circle at bottom right, rgba(0, 0, 50, 0.2), transparent 40%);
+    z-index: -1;
+}
+
+.form-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 28%;
+    height: 65%;
+    background-color: #fff; 
+    border-radius: 20px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3); 
+    padding: 0;  
+    overflow: hidden; 
+}
+
+/* Apply to the form itself */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* No extra gap on top */
+  padding: 20px;
+  height: 100%;
+  width: 100%;
+  gap: 10px; /* Small gap between inputs/buttons */
+  margin-left: 30px;
+}
+
+/* Tagline styling */
+.form-tagline {
+  padding-top: 30px;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Input fields */
+.form-input {
+  width: 85%;
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+
+}
+
+.form-input input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: none;
+  padding-left: 10px;
+  font-size: 14px;
+}
+
+/* Primary login button */
+.btn-primary {
+  width: 85%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 5px;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Google login button */
+.btn-google {
+  width: 85%;
+  padding: 12px;
+  background-color: #ffffff;
+  color: #555;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 5px;
+  transition: background-color 0.3s;
+}
+
+.btn-google:hover {
+  background-color: #f5f5f5;
+}
+
+/* Signup link */
+.signup-link {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 14px;
+  color: #666;
+  margin-left: 0px;
+}
+
+.signup-link a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
