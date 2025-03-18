@@ -5,6 +5,8 @@ import Signup from './Pages/Signup/Signup';
 import Home from './Pages/Home/Home';
 import { Routes,Route, BrowserRouter} from 'react-router-dom';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import JobCard from './components/Jobcard/Jobcard';
+
 
 function App() {
   return (
