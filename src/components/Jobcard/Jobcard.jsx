@@ -2,9 +2,9 @@ import React from "react";
 import './Jobcard.css'
 const colors = ["#e3dbfa", "#fbe2f4", "#ffe1cc", "#d4f6ed"];
 
-const JobCard = ({ job, index }) => {
+const JobCard = ({ job, index, onClick }) => {
   return (
-    <div className="cardcontainer">
+    <div className="cardcontainer" onClick={() => onClick(job)}>
       <div
         className="coloredcontainer"
         style={{ backgroundColor: colors[index % colors.length] }}
@@ -18,7 +18,7 @@ const JobCard = ({ job, index }) => {
       </div>
       </div>
        <div className="desc">    
-      <p>{job.salaryRange}</p>     
+      <p className="salary">{job.salaryRange}</p>     
       <button>Details</button>
       </div>  
     </div>
