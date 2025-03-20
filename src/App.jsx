@@ -4,9 +4,9 @@ import Login from './Pages/Login/Login';
 import Signup from './Pages/Signup/Signup';
 import Home from './Pages/Home/Home';
 import { Routes,Route, BrowserRouter} from 'react-router-dom';
-import JobDetails from './pages/JobDetails/JobDetails';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import JobCard from './components/Jobcard/Jobcard';
+import JobDetails from './pages/JobDetails/JobDetails';
 
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/signup' element={<Signup/>}></Route>
         <Route path='/home' element={<Home/>}></Route>
-        <Route path='/job' element={<JobDetails job={job}/>}></Route>
+        <Route path="/jobs/:id" element={<JobDetails />} />
       </Routes>
       </BrowserRouter>
     </div>
