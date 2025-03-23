@@ -1,9 +1,20 @@
+@font-face {
+  font-family: 'Orkney';
+  src: url('../../assets/font/Orkney-Medium.woff2') format('woff2'),
+       url('../../assets/font/Orkney-Medium.woff') format('woff'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 #jobdetails {
+    font-family: 'Orkney' , sans-serif;
     display: flex;
     margin-top: 10px; /* Increased margin for better spacing */
-    padding: 1px 20px; /* Added padding for a cleaner look */
+    padding: 10px 50px; /* Added padding for a cleaner look */
     background-color: white; /* Light background for contrast */
     border-radius: 10px; /* Rounded corners for a modern feel */
+     
 }
 
 .single-job-details {
@@ -11,36 +22,45 @@
     margin-right: 40px; /* Reduced margin for balance */
     padding: 20px; /* Added padding for content spacing */
     background-color: #fff; /* White background for job details */
+    font-family: 'Orkney' , sans-serif;
+
 
 }
 
 .job-title {
-    font-size: 26px; /* Increased font size for prominence */
+    font-size: 32px; /* Increased font size for prominence */
     font-weight: bold;
     color: #222; /* Darker color for better readability */
     margin-bottom: 15px; /* Increased margin */
+    font-family: 'Orkney' , sans-serif;
+
 }
 
 .company-info {
     display: flex;
     gap: 15px; 
-    font-size: 14px;
+    font-size: 18px;
     color: #555;
     margin-bottom: 20px; /* Increased margin */
     align-items: center;
+    font-family: 'Orkney' , sans-serif;
+
 }
 
 .job-info {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    font-family: 'Orkney' , sans-serif;
+
 }
 .info {
     background-color: gray;
+    font-family: 'Orkney' , sans-serif;
     width: fit-content;
     color: #fff;
     padding: 5px 10px; /* Adjusted padding */
-    font-size: 13px;
+    font-size: 16px;
     border-radius: 5px;
     margin: 0; /* Remove default margin */
     white-space: nowrap; /* Prevent text from wrapping */
@@ -50,30 +70,40 @@
 }
 .job-section {
     margin-top: 25px; /* Increased margin for section separation */
+    font-family: 'Orkney' , sans-serif;
+
 }
 
 .job-section h3 {
-    font-size: 16px; /* Increased section title size */
+    font-size: 18px; /* Increased section title size */
     font-weight: bold;
     color: #333;
     margin-bottom: 12px; /* Adjusted margin */
+    font-family: 'Orkney' , sans-serif;
+
 }
 .skills {
     list-style-type: disc; /* Add bullet points */
     padding-left: 20px; /* Add some padding to align bullets */
     margin-top: 10px; /* Add margin for spacing */
+    font-family: 'Orkney' , sans-serif;
+
   }
   
   .skills li {
     margin-bottom: 8px; /* Add spacing between list items */
-    font-size: 13px; /* Adjust font size */
-    color: #333; /* Set text color */
+    font-size: 15px; /* Adjust font size */
+    color: #666;
+    font-family: 'Orkney' , sans-serif;
+
   }
   
 .job-section p {
-    font-size: 13px;
+    font-size: 15px;
     color: #666;
     line-height: 1.7; /* Increased line height for readability */
+    font-family: 'Orkney' , sans-serif;
+
 }
 
 .apply-button {
@@ -88,6 +118,8 @@
     font-size: 16px;
     margin-top: 25px; /* Increased margin */
     transition: background-color 0.3s; /* Smooth transition for hover */
+    font-family: 'Orkney' , sans-serif;
+
 }
 
 .apply-button:hover {
@@ -212,4 +244,3 @@
       grid-template-columns: repeat(1, 1fr); /* 1 column on small screens */
     }
   }
-  
