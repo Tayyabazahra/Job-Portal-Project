@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./JobDetails.css";
+import {GET_JOB_BY_ID,GET_SIMILAR_JOBS} from "../../utils/constant"
 import { FaBriefcase, FaMapMarkerAlt, FaDollarSign } from "react-icons/fa";
 
 const colors = ["#e3dbfa", "#fbe2f4", "#ffe1cc", "#d4f6ed"];
@@ -17,24 +18,22 @@ const JobDetails = () => {
   useEffect(() => {
     setLoading(true);
     setError(null);
-
-    // Fetch job details
-    fetch(`http://localhost:8000/api/jobs/${id}`)
-      .then((res) => {
+  
+    Promise.all([
+      fetch(GET_JOB_BY_ID(id)).then((res) => {
         if (!res.ok) throw new Error("Job not found");
         return res.json();
+      }),
+      fetch(GET_SIMILAR_JOBS(id)).then((res) => res.json()),
+    ])
+      .then(([jobData, similarData]) => {
+        setJob(jobData);
+        setSimilarJobs(similarData);
       })
-      .then((data) => setJob(data))
-      .catch((err) => setError(err.message));
-
-    // Fetch similar jobs
-    fetch(`http://localhost:8000/api/jobs/${id}/similar`)
-      .then((res) => res.json())
-      .then((data) => setSimilarJobs(data))
-      .catch(() => setSimilarJobs([]));
-
-    setLoading(false);
+      .catch((err) => setError(err.message))
+      .finally(() => setLoading(false));
   }, [id]);
+  
 
   if (loading) return <p>Loading job details...</p>;
   if (error) return <p className="error">{error}</p>;

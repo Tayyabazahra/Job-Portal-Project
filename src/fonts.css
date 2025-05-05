@@ -1,0 +1,17 @@
+/* Custom Local Font - Orkney */
+@font-face {
+    font-family: 'Orkney';
+    src: url('./assets/font/Orkney-Medium.woff2') format('woff2'),  /* ✅ Corrected */
+         url('./assets/font/Orkney-Medium.woff') format('woff');    /* ✅ Corrected */
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --outfit: 'Outfit', sans-serif;
+    --orkney: 'Orkney', sans-serif;
+    --poppins: 'Poppins', sans-serif;
+}

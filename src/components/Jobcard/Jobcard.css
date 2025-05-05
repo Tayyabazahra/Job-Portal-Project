@@ -1,8 +1,10 @@
 .job-list {
     display: grid;
+    padding: 0;
     grid-template-columns: repeat(3, 1fr); 
-    gap: 20px 3px; /* 5px row gap, 15px column gap */
-    padding: 10px;
+    gap: 25px 0px; /* 5px row gap, 15px column gap */
+    margin-left: 100px;
+    margin-top: 15px;
   }
   
   .cardcontainer {
@@ -34,6 +36,7 @@
     margin: 10px 0;
     color: #333;
     text-align: left;
+    font-weight: 700;
   }
   
   p {
@@ -88,17 +91,65 @@
     white-space: nowrap;
   }
 
- 
-  /* Responsive Design */
-  @media (max-width: 1024px) {
+  .custom-pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: nowrap;
+    gap: 6px;
+    align-items: center;
+  }
+  
+  .page-btn {
+    padding: 6px 12px;
+    background-color: #f2f2f2;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+  }
+  
+  .page-btn:hover:not(.active):not(:disabled) {
+    background-color: #ddd;
+  }
+  
+  .page-btn.active {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .page-btn.dots {
+    cursor: default;
+    background: none;
+  }
+  
+  .page-btn.nav-btn {
+    font-size: 1rem;
+    background-color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+  }
+  
+  .page-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  
+    
+   @media (max-width: 1024px) {
     .job-list {
-      grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+      grid-template-columns: repeat(2, 1fr); 
     }
   }
   
+
   @media (max-width: 768px) {
     .job-list {
-      grid-template-columns: repeat(1, 1fr); /* 1 column on small screens */
+      grid-template-columns: repeat(1, 1fr); 
     }
   }
   

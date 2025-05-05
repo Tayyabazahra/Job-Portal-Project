@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import "./Login.css";
+import { LOGIN_ROUTE, GOOGLE_LOGIN_ROUTE } from '../../utils/constant';
 
 function Auth() {
   const [loginInfo, setLoginInfo] = useState({ email: "", password: "" });
@@ -27,7 +28,7 @@ function Auth() {
     }
 
     try {
-      const response = await axios.post("http://localhost:8000/auth/login", {
+      const response = await axios.post(LOGIN_ROUTE, {
         email,
         password,
       });
@@ -87,18 +88,16 @@ function Auth() {
           </button>
 
           {/* Google Login Button */}
-
           <button
-  type="button"
-  className="btn-google"
-  onClick={() =>
-    window.location.href = 'http://localhost:8000/auth/google?state=login'
-  }
->
-  <i className="fab fa-google"></i>
-  Continue with Google
-</button>
-
+            type="button"
+            className="btn-google"
+            onClick={() => {
+              window.location.href = GOOGLE_LOGIN_ROUTE;
+            }}
+          >
+            <i className="fab fa-google"></i>
+            Continue with Google
+          </button>
 
           <p className="signup-link">
             New here? &nbsp;

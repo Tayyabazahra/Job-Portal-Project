@@ -3,7 +3,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
-import "./Signup.css"; 
+import "./Signup.css";
+import { SIGNUP_ROUTE, GOOGLE_SIGNUP_ROUTE } from "../../utils/constant";
 
 function Signup() {
   const [signupInfo, setSignupInfo] = useState({
@@ -31,7 +32,7 @@ function Signup() {
     }
 
     try {
-      const response = await axios.post("http://localhost:8000/auth/signup", {
+      const response = await axios.post(SIGNUP_ROUTE, {
         name,
         email,
         password,
@@ -69,10 +70,7 @@ function Signup() {
               required
             />
           </div>
-          
-          
-          
-          {/* Email Input */}
+
           <div className="form-input">
             <i className="fas fa-envelope"></i>
             <input
@@ -85,9 +83,6 @@ function Signup() {
             />
           </div>
 
-
-
-          {/* Password Input */}
           <div className="form-input">
             <i className="fas fa-lock"></i>
             <input
@@ -100,24 +95,19 @@ function Signup() {
             />
           </div>
 
-
-          {/* Signup Button */}
           <button type="submit" className="btn-primary">
             Sign Up
           </button>
 
-
           <button
             type="button"
             className="btn-google"
-            onClick={() =>
-              (window.location.href =
-                "http://localhost:8000/auth/google?state=signup")
-            }
+            onClick={() => (window.location.href = GOOGLE_SIGNUP_ROUTE)}
           >
             <i className="fab fa-google"></i>
             Continue with Google
           </button>
+
           <p className="signup-link">
             Already have an account? &nbsp;
             <Link to="/login" className="signup-link">

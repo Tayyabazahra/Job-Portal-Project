@@ -1,5 +1,8 @@
 import React from "react";
 import './Jobcard.css'
+import '../../fonts.css'
+
+
 const colors = ["#e3dbfa", "#fbe2f4", "#ffe1cc", "#d4f6ed"];
 
 const JobCard = ({ job, index, onClick }) => {
