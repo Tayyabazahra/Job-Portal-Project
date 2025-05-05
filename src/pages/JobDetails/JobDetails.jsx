@@ -95,7 +95,7 @@ const JobDetails = () => {
           <p>{job.benefits.replace(/[{}]/g, "")}</p>
         </div>
 
-        <button className="apply-button">Apply Now</button>
+        <Link to={"/jobs/application"}><button className="apply-button">Apply Now</button></Link>
       </div>
 
       {/* Similar Jobs */}

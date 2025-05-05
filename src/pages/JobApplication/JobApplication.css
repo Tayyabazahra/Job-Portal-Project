@@ -1,0 +1,213 @@
+/* Center the form and make it responsive */
+.container {
+  max-width: 100vh;
+  margin: 40px auto;
+  padding: 30px;
+  background: white;
+}
+
+/* Title Styling */
+.form-title {
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+}
+.description {
+  font-size: 16px;
+  margin-bottom: 1rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+/* Form Styling */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Form Group */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Labels */
+.form-group label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 8px;
+}
+
+/* Inputs, Select & Textarea */
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f8f8f8;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Input focus effect */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  background-color: #fff;
+  box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.2);
+}
+.name {
+  display: flex;
+  gap: 15px; /* Space between first and last name fields */
+}
+
+.name input {
+  flex: 1; /* Make both inputs take equal width */
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f8f8f8;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Input focus effect */
+.name input:focus {
+  outline: none;
+  border-color: #007bff;
+  background-color: #fff;
+  box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.2);
+}
+/* Textarea */
+.form-group textarea {
+  height: 120px;
+  resize: none;
+}
+
+/* Submit Button */
+.btn-primary {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 5px;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Success  Message */
+.success-message {
+  padding: 12px;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.success-message {
+  background: #d4edda;
+  color: #155724;
+}
+
+.cv-input {
+  display: none;
+}
+
+.cv-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  border: 2px dashed #ccc;
+  cursor: pointer;
+  width: 100%;
+}
+.file-icon {
+  color: orange;
+  font-size: 30px;
+}
+.browse {
+  color: #007bff;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.uploaded-list {
+  margin-top: 10px;
+}
+
+.uploaded-file {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f5f5f5;
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: red;
+  cursor: pointer;
+}
+/* Remove background and outline when focused */
+.Toastify__close-button {
+  background: none !important;
+  outline: none !important;
+  border: none !important;
+  width: .9rem !important;
+}
+
+/* Ensure close button appears normal on hover */
+.Toastify__close-button:hover {
+  background: none !important;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    max-width: 90%;
+    padding: 20px;
+  }
+
+  .form-title {
+    font-size: 22px;
+  }
+
+  .form-group label {
+    font-size: 14px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 14px;
+  }
+
+  .submit-btn {
+    font-size: 16px;
+    padding: 12px;
+  }
+  .name {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

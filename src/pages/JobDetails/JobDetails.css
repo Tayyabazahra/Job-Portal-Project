@@ -7,13 +7,25 @@
 }
 
 
+@font-face {
+  font-family: 'Orkney';
+  src: url('../../assets/font/Orkney-Medium.woff2') format('woff2'),
+       url('../../assets/font/Orkney-Medium.woff') format('woff'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 #jobdetails {
+    font-family: 'Orkney' , sans-serif;
     font-family: 'Orkney' , sans-serif;
     display: flex;
     margin-top: 10px; /* Increased margin for better spacing */
     padding: 10px 50px; /* Added padding for a cleaner look */
+    padding: 10px 50px; /* Added padding for a cleaner look */
     background-color: white; /* Light background for contrast */
     border-radius: 10px; /* Rounded corners for a modern feel */
+     
      
 }
 
@@ -24,10 +36,13 @@
     background-color: #fff; /* White background for job details */
     font-family: 'Orkney' , sans-serif;
 
+    font-family: 'Orkney' , sans-serif;
+
 
 }
 
 .job-title {
+    font-size: 32px; /* Increased font size for prominence */
     font-size: 32px; /* Increased font size for prominence */
     font-weight: bold;
     color: #222; /* Darker color for better readability */
@@ -38,6 +53,7 @@
 .company-info {
     display: flex;
     gap: 15px; 
+    font-size: 18px;
     font-size: 18px;
     color: #555;
     margin-bottom: 20px; /* Increased margin */
@@ -53,9 +69,11 @@
 }
 .info {
     background-color: gray;
+    font-family: 'Orkney' , sans-serif;
     width: fit-content;
     color: #fff;
     padding: 5px 10px; /* Adjusted padding */
+    font-size: 16px;
     font-size: 16px;
     border-radius: 5px;
     margin: 0; /* Remove default margin */
@@ -70,6 +88,7 @@
 }
 
 .job-section h3 {
+    font-size: 18px; /* Increased section title size */
     font-size: 18px; /* Increased section title size */
     font-weight: bold;
     color: #333;
@@ -91,6 +110,7 @@
   }
   
 .job-section p {
+    font-size: 15px;
     font-size: 15px;
     color: #666;
     line-height: 1.7; /* Increased line height for readability */
@@ -234,4 +254,3 @@
       grid-template-columns: repeat(1, 1fr); /* 1 column on small screens */
     }
   }
-  
